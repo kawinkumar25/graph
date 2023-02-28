@@ -1,47 +1,28 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
-class graph1 implements Cloneable
-{
-    Integer x;
-    Integer y;
-    graph1(Integer a,Integer b)
-    {
-        x=a;
-        y=b;
-    }
-    boolean equals()
-    {
-        return x.equals(y);
-    }
-
-    graph1 gp()
-    {
-        try
-        {
-            return (graph1) super.clone();
-        }
-        catch (CloneNotSupportedException e)
-        {
-            System.out.println("cloned error");
-            return this;
-        }
-    }
-}
-
-class graph
+class Graph
 {
     public static void main(String[] args)
     {
-        Scanner inp = new Scanner(System.in);
-        System.out.println("enter x");
-        Integer x = inp.nextInt();
-        System.out.println("enter y");
-        Integer y = inp.nextInt();
+        Logger l = Logger.getLogger("kawin");
+        Scanner inpobject = new Scanner(System.in);
+        l.info("enter x");
+        Integer x = inpobject.nextInt();
+        l.info("enter y");
+        Integer y = inpobject.nextInt();
 
-        graph1 ob1 = new graph1(x, y);
-        graph1 ob2 = ob1.gp();
-        System.out.println(ob2.equals());
+        Graphclone obj1 = new Graphclone(x, y);
+        Graphclone obj2 = obj1.gp();
+        if(obj2.equals())
+        {
+            l.info("x and y are same");
+        }
+        else
+        {
+            l.info("x and y are not same");
+        }
     }
 }
